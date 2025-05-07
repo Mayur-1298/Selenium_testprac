@@ -14,5 +14,5 @@ public class Test1 {
         System.out.println(driver.getTitle());
         driver.quit();
 
-        . }
+    }
 }
