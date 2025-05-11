@@ -9,6 +9,8 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static WrapperClasss.Methods.waitJVM;
+
 public class miniProject_Selenium {
 
     @Description("Verify with invalid email, pass, error message is shown on screen")
@@ -73,22 +75,14 @@ public class miniProject_Selenium {
 
         WebElement makeAppbtn= driver.findElement(By.xpath("//a[@id=\"btn-make-appointment\"]"));
         makeAppbtn.click();
-        try {
-            Thread.sleep(1500);
-        }catch(InterruptedException e){
-            throw new RuntimeException(e);
-        }
+        waitJVM(1500);
         WebElement loginBox=driver.findElement(By.xpath("//input[@id='txt-username']"));
         loginBox.sendKeys("John Doe");
         WebElement passwordBox=driver.findElement(By.xpath("//input[@id='txt-password']"));
         passwordBox.sendKeys("ThisIsNotAPassword");
         WebElement loginBtn=driver.findElement(By.xpath("//button[@id='btn-login']"));
         loginBtn.click();
-        try {
-            Thread.sleep(3000);
-        }catch(InterruptedException e){
-            throw new RuntimeException(e);
-        }
+        waitJVM(3000);
         System.out.println(driver.getCurrentUrl());
         Assert.assertEquals(driver.getCurrentUrl(),"https://katalon-demo-cura.herokuapp.com/#appointment");
 
