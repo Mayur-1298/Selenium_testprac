@@ -22,6 +22,7 @@ import org.openqa.selenium.logging.LoggingPreferences;
 ///
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.Test;
 
 public class TestCases {
 
@@ -32,9 +33,10 @@ public class TestCases {
 
         public TestCases() throws MalformedURLException {
             System.out.println("Constructor: TestCases");
+            WebDriver driver=new ChromeDriver();
 
-            final ChromeOptions options = new ChromeOptions();
-            RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:8082/wd/hub"), options);
+//            final ChromeOptions options = new ChromeOptions();
+//            RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:8082/wd/hub"), options);
 
 
             // Set browser to maximize and wait
@@ -49,7 +51,7 @@ public class TestCases {
             driver.quit();
 
         }
-
+        @Test
         public void testCase01() {
             System.out.println("\n"+"Start Test case: testCase01");
             driver.get("https://www.wikipedia.org");
